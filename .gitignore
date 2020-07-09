@@ -1,0 +1,19 @@
+#MacOS generated files#
+#######################
+.DS_Store
+
+#Launch files or something#
+##############
+.vscode/*
+.settings/*
+.project
+.classpath
+
+#Build files#
+#############
+bin/*
+build/*
+
+#Gradle temp files (??)#
+########################
+.gradle/*

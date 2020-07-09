@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+repositories {
+   mavenCentral()
+   maven{ url "https://frcmaven.wpi.edu/artifactory/release/" }
+}
+
+dependencies {
+   compileOnly group: "edu.wpi.first.shuffleboard", name: "api", version: "2020.+"
+   compileOnly group: "edu.wpi.first.shuffleboard.plugin", name: "networktables", version: "2020.+"
+}
+
+javafx {
+    modules = [ 'javafx.fxml', 'javafx.controls', 'javafx.graphics' ]
+    configuration = 'compileOnly'
+}
+
+task deployPlugin(type: Copy) {
+    group = "Shuffleboard Plugin"
+    description = "Builds the plugin JAR and installs it in the Shuffleboard plugins directory."
+    from("build/libs") {
+        include "*.jar"
+    }
+    into("${System.getProperty("user.home")}/Shuffleboard/plugins")
+}

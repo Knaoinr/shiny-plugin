@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<Pane xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.knaoinr.customwidgets.widget.XboxWidget"
+        fx:id="root"
+        minHeight="278" minWidth="439"
+        prefHeight="278" prefWidth="439" >
+    <padding>
+        <Insets topRightBottomLeft="4"/>
+    </padding>
+    <!-- Shapes -->
+    <Circle fx:id="a"/>
+    <Circle fx:id="b"/>
+    <Circle fx:id="x"/>
+    <Circle fx:id="y"/>
+    <Rectangle fx:id="lb"/>
+    <Rectangle fx:id="rb"/>
+    <Circle fx:id="ls"/>
+    <Circle fx:id="rs"/>
+    <Circle fx:id="leftJoystick"/>
+    <Circle fx:id="rightJoystick"/>
+    <Rectangle fx:id="leftTrigger"/>
+    <Rectangle fx:id="rightTrigger"/>
+    <Rectangle fx:id="horizontalPOV"/>
+    <Rectangle fx:id="verticalPOV"/>
+    <!-- Text labels -->
+    <Label fx:id="aDescView" alignment="TOP_LEFT" textAlignment="LEFT" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="bDescView" alignment="CENTER_RIGHT" textAlignment="RIGHT" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="xDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="yDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="lbDescView" alignment="TOP_CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="rbDescView" alignment="TOP_CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="lsDescView" alignment="TOP_LEFT" textAlignment="LEFT" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="rsDescView" alignment="BOTTOM_RIGHT" textAlignment="RIGHT" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="leftJoystickDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="rightJoystickDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="leftTriggerDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="rightTriggerDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+    <Label fx:id="POVDescView" alignment="CENTER" textAlignment="CENTER" wrapText="true" lineSpacing="-5"/>
+</Pane>
