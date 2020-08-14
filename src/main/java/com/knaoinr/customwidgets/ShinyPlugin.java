@@ -8,6 +8,7 @@ import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
 import com.google.common.collect.ImmutableList;
+import com.knaoinr.customwidgets.widget.TimerWidget;
 import com.knaoinr.customwidgets.widget.XboxWidget;
 
 import java.util.List;
@@ -19,15 +20,16 @@ import java.util.Map;
 @Description(
     group = "com.knaoinr",
     name = "Shiny Plugin",
-    version = "1.0.1",
-    summary = "A plugin for displaying custom widgets, such as an Xbox controller."
+    version = "1.1.0",
+    summary = "A plugin for displaying custom widgets, such as an Xbox controller or the match time."
 )
 public final class ShinyPlugin extends Plugin {
 
     @Override
     public List<ComponentType> getComponents() {
         return ImmutableList.of(
-            WidgetType.forAnnotatedWidget(XboxWidget.class)
+            WidgetType.forAnnotatedWidget(XboxWidget.class),
+            WidgetType.forAnnotatedWidget(TimerWidget.class)
         );
     }
 

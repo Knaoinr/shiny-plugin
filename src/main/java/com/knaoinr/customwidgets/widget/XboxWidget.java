@@ -34,16 +34,16 @@ import javafx.beans.property.SimpleObjectProperty;
 @ParametrizedController("XboxWidget.fxml")
 public final class XboxWidget extends SimpleAnnotatedWidget<boolean[]> {
 
-    private final Property<Color> pressedColor
-        = new SimpleObjectProperty<>(this, "colorWhenPressed", Color.LAWNGREEN);
+    private final Property<Color> colorWhenPressed
+        = new SimpleObjectProperty<>(this, "Color when pressed", Color.LAWNGREEN);
     private final Property<Color> backgroundColor
-        = new SimpleObjectProperty<>(this, "backgroundColor", Color.GREY);
+        = new SimpleObjectProperty<>(this, "Background color", Color.GREY);
     private final Property<Color> buttonColor
-        = new SimpleObjectProperty<>(this, "buttonColor", Color.DARKGREY);
+        = new SimpleObjectProperty<>(this, "Button color", Color.DARKGREY);
     private final Property<Color> textColor1
-        = new SimpleObjectProperty<>(this, "textColor1", Color.BLACK);
+        = new SimpleObjectProperty<>(this, "Text color 1", Color.BLACK);
     private final Property<Color> textColor2
-        = new SimpleObjectProperty<>(this, "textColor2", Color.BLACK);
+        = new SimpleObjectProperty<>(this, "Text color 2", Color.BLACK);
 
     private final Property<String> aDesc
         = new SimpleObjectProperty<>(this, "aDesc", "");
@@ -140,77 +140,77 @@ public final class XboxWidget extends SimpleAnnotatedWidget<boolean[]> {
         root.setShape(svg);
         root.backgroundProperty().bind(Bindings.createObjectBinding(() -> getSolidBackground(backgroundColor.getValue()), backgroundColor));
 
-        a.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[0] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        a.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[0] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         a.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.05*root.getHeight(), 0.03*root.getWidth()), root.heightProperty(), root.widthProperty()));
         a.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.85*root.getWidth(), root.widthProperty()));
         a.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.35*root.getHeight() + 0.8*leftJoystick.getRadius(), root.heightProperty(), leftJoystick.radiusProperty()));
 
-        b.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[1] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        b.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[1] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         b.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.05*root.getHeight(), 0.03*root.getWidth()), root.heightProperty(), root.widthProperty()));
         b.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.85*root.getWidth() + 0.8*leftJoystick.getRadius(), root.widthProperty(), leftJoystick.radiusProperty()));
         b.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.35*root.getHeight(), root.heightProperty()));
 
-        x.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[2] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        x.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[2] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         x.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.05*root.getHeight(), 0.03*root.getWidth()), root.heightProperty(), root.widthProperty()));
         x.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.85*root.getWidth() - 0.8*leftJoystick.getRadius(), root.widthProperty(), leftJoystick.radiusProperty()));
         x.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.35*root.getHeight(), root.heightProperty()));
 
-        y.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[3] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        y.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[3] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         y.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.05*root.getHeight(), 0.03*root.getWidth()), root.heightProperty(), root.widthProperty()));
         y.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.85*root.getWidth(), root.widthProperty(), leftJoystick.radiusProperty()));
         y.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.35*root.getHeight() - 0.8*leftJoystick.getRadius(), root.heightProperty(), leftJoystick.radiusProperty()));
 
-        lb.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[4] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        lb.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[4] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         lb.widthProperty().bind(Bindings.createDoubleBinding(() -> 0.133*root.getWidth(), root.widthProperty()));
         lb.heightProperty().bind(Bindings.createDoubleBinding(() ->0.036*root.getHeight(), root.heightProperty()));
         lb.xProperty().bind(Bindings.createDoubleBinding(() -> 0.195*root.getWidth() - lb.getWidth()/2.0, root.widthProperty(), lb.widthProperty()));
         lb.yProperty().bind(Bindings.createDoubleBinding(() -> 0.11*root.getHeight() - lb.getHeight()/2.0, root.heightProperty(), lb.heightProperty()));
 
-        rb.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[5] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        rb.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[5] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         rb.widthProperty().bind(Bindings.createDoubleBinding(() -> 0.133*root.getWidth(), root.widthProperty()));
         rb.heightProperty().bind(Bindings.createDoubleBinding(() ->0.036*root.getHeight(), root.heightProperty()));
         rb.xProperty().bind(Bindings.createDoubleBinding(() -> 0.805*root.getWidth() - rb.getWidth()/2.0, root.widthProperty(), rb.widthProperty()));
         rb.yProperty().bind(Bindings.createDoubleBinding(() -> 0.11*root.getHeight() - rb.getHeight()/2.0, root.heightProperty(), rb.heightProperty()));
 
-        ls.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[6] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        ls.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[6] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         ls.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.025*root.getHeight(), 0.015*root.getWidth()), root.heightProperty(), root.widthProperty()));
         ls.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.43*root.getWidth(), root.widthProperty()));
         ls.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.29*root.getHeight(), root.heightProperty()));
 
-        rs.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[7] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        rs.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[7] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         rs.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.025*root.getHeight(), 0.015*root.getWidth()), root.heightProperty(), root.widthProperty()));
         rs.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.57*root.getWidth(), root.widthProperty()));
         rs.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.29*root.getHeight(), root.heightProperty()));
 
-        leftJoystick.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[8] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        leftJoystick.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[8] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         leftJoystick.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.125*root.getHeight(), 0.085*root.getWidth()), root.heightProperty(), root.widthProperty()));
         leftJoystick.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.15*root.getWidth(), root.widthProperty()));
         leftJoystick.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.35*root.getHeight(), root.heightProperty()));
 
-        rightJoystick.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[9] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        rightJoystick.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[9] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         rightJoystick.radiusProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.125*root.getHeight(), 0.085*root.getWidth()), root.heightProperty(), root.widthProperty()));
         rightJoystick.centerXProperty().bind(Bindings.createDoubleBinding(() -> 0.685*root.getWidth(), root.widthProperty()));
         rightJoystick.centerYProperty().bind(Bindings.createDoubleBinding(() -> 0.57*root.getHeight(), root.heightProperty()));
 
-        leftTrigger.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[10] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        leftTrigger.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[10] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         leftTrigger.widthProperty().bind(Bindings.createDoubleBinding(() -> 0.133*root.getWidth(), root.widthProperty()));
         leftTrigger.heightProperty().bind(Bindings.createDoubleBinding(() ->0.07*root.getHeight(), root.heightProperty()));
         leftTrigger.xProperty().bind(Bindings.createDoubleBinding(() -> 0.195*root.getWidth() - leftTrigger.getWidth()/2.0, root.widthProperty(), leftTrigger.widthProperty()));
         leftTrigger.yProperty().bind(Bindings.createDoubleBinding(() -> 0.024*root.getHeight() - leftTrigger.getHeight()/2.0, root.heightProperty(), leftTrigger.heightProperty()));
 
-        rightTrigger.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[11] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        rightTrigger.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[11] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         rightTrigger.widthProperty().bind(Bindings.createDoubleBinding(() -> 0.133*root.getWidth(), root.widthProperty()));
         rightTrigger.heightProperty().bind(Bindings.createDoubleBinding(() ->0.07*root.getHeight(), root.heightProperty()));
         rightTrigger.xProperty().bind(Bindings.createDoubleBinding(() -> 0.805*root.getWidth() - rightTrigger.getWidth()/2.0, root.widthProperty(), rightTrigger.widthProperty()));
         rightTrigger.yProperty().bind(Bindings.createDoubleBinding(() -> 0.024*root.getHeight() - rightTrigger.getHeight()/2.0, root.heightProperty(), rightTrigger.heightProperty()));
 
-        horizontalPOV.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[12] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        horizontalPOV.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[12] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         horizontalPOV.widthProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.25*root.getHeight(), 0.17*root.getWidth()), root.heightProperty(), root.widthProperty()));
         horizontalPOV.heightProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.25*root.getHeight()/3.0, 0.17*root.getWidth()/3.0), root.heightProperty(), root.widthProperty()));
         horizontalPOV.xProperty().bind(Bindings.createDoubleBinding(() -> 0.315*root.getWidth() - horizontalPOV.getWidth()/2.0, root.widthProperty(), horizontalPOV.widthProperty()));
         horizontalPOV.yProperty().bind(Bindings.createDoubleBinding(() -> 0.57*root.getHeight() - horizontalPOV.getHeight()/2.0, root.heightProperty(), horizontalPOV.heightProperty()));
 
-        verticalPOV.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[12] ? pressedColor.getValue() : buttonColor.getValue(), dataProperty(), pressedColor, buttonColor));
+        verticalPOV.fillProperty().bind(Bindings.createObjectBinding(() -> getData()[12] ? colorWhenPressed.getValue() : buttonColor.getValue(), dataProperty(), colorWhenPressed, buttonColor));
         verticalPOV.widthProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.25*root.getHeight()/3.0, 0.17*root.getWidth()/3.0), root.heightProperty(), root.widthProperty()));
         verticalPOV.heightProperty().bind(Bindings.createDoubleBinding(() -> Math.min(0.25*root.getHeight(), 0.17*root.getWidth()), root.heightProperty(), root.widthProperty()));
         verticalPOV.xProperty().bind(Bindings.createDoubleBinding(() -> 0.315*root.getWidth() - verticalPOV.getWidth()/2.0, root.widthProperty(), verticalPOV.widthProperty()));
@@ -346,7 +346,7 @@ public final class XboxWidget extends SimpleAnnotatedWidget<boolean[]> {
     public List<Group> getSettings() {
         return ImmutableList.of(
             Group.of("Colors",
-                Setting.of("Color when pressed", "The color to use when a button is pressed", pressedColor, Color.class),
+                Setting.of("Color when pressed", "The color to use when a button is pressed", colorWhenPressed, Color.class),
                 Setting.of("Background color", "The color to use as the background of the controller", backgroundColor, Color.class),
                 Setting.of("Button color", "The color to use for the buttons of the controller", buttonColor, Color.class),
                 Setting.of("Text color 1", "The text color to use on the body of the controller", textColor1, Color.class),
