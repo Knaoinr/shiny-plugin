@@ -35,15 +35,15 @@ import javafx.beans.property.SimpleObjectProperty;
 public final class XboxWidget extends SimpleAnnotatedWidget<boolean[]> {
 
     private final Property<Color> colorWhenPressed
-        = new SimpleObjectProperty<>(this, "Color when pressed", Color.LAWNGREEN);
+        = new SimpleObjectProperty<>(this, "colorWhenPressed", Color.LAWNGREEN);
     private final Property<Color> backgroundColor
-        = new SimpleObjectProperty<>(this, "Background color", Color.GREY);
+        = new SimpleObjectProperty<>(this, "backgroundColor", Color.GREY);
     private final Property<Color> buttonColor
-        = new SimpleObjectProperty<>(this, "Button color", Color.DARKGREY);
+        = new SimpleObjectProperty<>(this, "buttonColor", Color.DARKGREY);
     private final Property<Color> textColor1
-        = new SimpleObjectProperty<>(this, "Text color 1", Color.BLACK);
+        = new SimpleObjectProperty<>(this, "textColor1", Color.BLACK);
     private final Property<Color> textColor2
-        = new SimpleObjectProperty<>(this, "Text color 2", Color.BLACK);
+        = new SimpleObjectProperty<>(this, "textColor2", Color.BLACK);
 
     private final Property<String> aDesc
         = new SimpleObjectProperty<>(this, "aDesc", "");

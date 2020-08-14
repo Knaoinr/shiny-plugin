@@ -20,7 +20,7 @@ import java.util.Map;
 @Description(
     group = "com.knaoinr",
     name = "Shiny Plugin",
-    version = "1.1.0",
+    version = "1.1.1",
     summary = "A plugin for displaying custom widgets, such as an Xbox controller or the match time."
 )
 public final class ShinyPlugin extends Plugin {

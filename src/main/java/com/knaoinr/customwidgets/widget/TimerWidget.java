@@ -1,5 +1,11 @@
 package com.knaoinr.customwidgets.widget;
 
+import java.util.List;
+
+import com.google.common.collect.ImmutableList;
+
+import edu.wpi.first.shuffleboard.api.prefs.Group;
+import edu.wpi.first.shuffleboard.api.prefs.Setting;
 import edu.wpi.first.shuffleboard.api.widget.Description;
 import edu.wpi.first.shuffleboard.api.widget.ParametrizedController;
 import edu.wpi.first.shuffleboard.api.widget.SimpleAnnotatedWidget;
@@ -25,14 +31,14 @@ import javafx.scene.text.Font;
 public final class TimerWidget extends SimpleAnnotatedWidget<Double> {
 
     private final Property<Boolean> colorsOn
-        = new SimpleBooleanProperty(this, "Colors on", true);
+        = new SimpleBooleanProperty(this, "colorsOn", true);
 
     private final Property<Number> autonomous
-        = new SimpleDoubleProperty(this, "Autonomous length", 15);
+        = new SimpleDoubleProperty(this, "autonomous", 15);
     private final Property<Number> teleop
-        = new SimpleDoubleProperty(this, "Teleop length", 105); //this does NOT include endgame
+        = new SimpleDoubleProperty(this, "teleop", 105); //this does NOT include endgame
     private final Property<Number> endgame
-        = new SimpleDoubleProperty(this, "Endgame length", 30);
+        = new SimpleDoubleProperty(this, "endgame", 30);
 
     @FXML
     private Pane root;
@@ -48,6 +54,20 @@ public final class TimerWidget extends SimpleAnnotatedWidget<Double> {
         timerLabel.textFillProperty().bind(Bindings.createObjectBinding(() -> getColor(dataOrDefault.getValue()), dataProperty(), colorsOn, autonomous, teleop, endgame));
 
         timerLabel.setFont(new Font(30));
+    }
+
+    @Override
+    public List<Group> getSettings() {
+        return ImmutableList.of(
+            Group.of("Color",
+                Setting.of("Colors on", colorsOn, Boolean.class)
+            ),
+            Group.of("Match length",
+                Setting.of("Autonomous length", autonomous, Double.class),
+                Setting.of("Teleop length", teleop, Double.class),
+                Setting.of("Endgame length", endgame, Double.class)
+            )
+        );
     }
 
     @Override
