@@ -3,6 +3,11 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 repositories {
    mavenCentral()
    maven{ url "https://frcmaven.wpi.edu/artifactory/release/" }
