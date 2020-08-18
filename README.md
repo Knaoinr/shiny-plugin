@@ -43,7 +43,7 @@ The default is false for all of these.
 To set this in the code:
 
 ```java
-operatorControllerWidget.setObject(array);
+operatorControllerWidget.setBooleanArray(array);
 ```
 
 The button labels are set as properties as explained above.
