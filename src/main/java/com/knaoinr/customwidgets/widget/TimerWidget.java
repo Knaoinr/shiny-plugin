@@ -1,7 +1,6 @@
 package com.knaoinr.customwidgets.widget;
 
 import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 
 import edu.wpi.first.shuffleboard.api.prefs.Group;
@@ -9,6 +8,7 @@ import edu.wpi.first.shuffleboard.api.prefs.Setting;
 import edu.wpi.first.shuffleboard.api.widget.Description;
 import edu.wpi.first.shuffleboard.api.widget.ParametrizedController;
 import edu.wpi.first.shuffleboard.api.widget.SimpleAnnotatedWidget;
+
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleBooleanProperty;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.SVGPath?>
+<Pane xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.knaoinr.customwidgets.widget.PathWidget"
+        fx:id="root"
+        minHeight="255" minWidth="135"
+        prefHeight="415" prefWidth="215" >
+    <padding>
+        <Insets topRightBottomLeft="4"/>
+    </padding>
+    <ImageView fx:id="imageView"/>
+    <SVGPath fx:id="path"/>
+</Pane>
