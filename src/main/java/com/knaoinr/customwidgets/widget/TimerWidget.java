@@ -53,7 +53,7 @@ public final class TimerWidget extends SimpleAnnotatedWidget<Double> {
 
         timerLabel.textFillProperty().bind(Bindings.createObjectBinding(() -> getColor(dataOrDefault.getValue()), dataProperty(), colorsOn, autonomous, teleop, endgame));
 
-        timerLabel.setFont(new Font(30));
+        timerLabel.setFont(new Font(60));
     }
 
     @Override
