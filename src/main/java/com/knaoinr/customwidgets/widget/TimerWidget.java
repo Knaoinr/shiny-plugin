@@ -13,6 +13,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -32,6 +33,8 @@ public final class TimerWidget extends SimpleAnnotatedWidget<Double> {
 
     private final Property<Boolean> colorsOn
         = new SimpleBooleanProperty(this, "colorsOn", true);
+    private final Property<Number> fontSize
+        = new SimpleIntegerProperty(this, "fontSize", 60);
 
     private final Property<Number> autonomous
         = new SimpleDoubleProperty(this, "autonomous", 15);
@@ -53,14 +56,15 @@ public final class TimerWidget extends SimpleAnnotatedWidget<Double> {
 
         timerLabel.textFillProperty().bind(Bindings.createObjectBinding(() -> getColor(dataOrDefault.getValue()), dataProperty(), colorsOn, autonomous, teleop, endgame));
 
-        timerLabel.setFont(new Font(60));
+        timerLabel.fontProperty().bind(Bindings.createObjectBinding(() -> new Font(fontSize.getValue().intValue()), fontSize));
     }
 
     @Override
     public List<Group> getSettings() {
         return ImmutableList.of(
-            Group.of("Color",
-                Setting.of("Colors on", colorsOn, Boolean.class)
+            Group.of("Appearance",
+                Setting.of("Colors on", colorsOn, Boolean.class),
+                Setting.of("Font size", fontSize, Integer.class)
             ),
             Group.of("Match length",
                 Setting.of("Autonomous length", autonomous, Double.class),
